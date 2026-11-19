@@ -2,7 +2,7 @@
 
 - 작성: 2026-10-02, `#162`·`#163` 병합 후
 - 종류: **기존 사용자 화면 및 소스 기반 가설·사전 계획**. 새로운 운영 요청, GCP 로그 조회, 배포·Langfuse 설정 변경 없음.
-- 기준: [10/2 운영 증거 교차검증](2026-10-02_evaluation-evidence-gap-audit.md), [PR #162](https://github.com/aihuman-7th/proj2-3/pull/162), 공식 D10 체크리스트
+- 기준: [10/2 운영 증거 교차검증](2026-10-02_evaluation-evidence-gap-audit.md), PR #162, 공식 D10 체크리스트
 
 ## 1. 관측과 해결·미해결 경계
 

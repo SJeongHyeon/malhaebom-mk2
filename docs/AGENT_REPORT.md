@@ -15,8 +15,8 @@
 | GitHub main | 갱신 출발점 `dfd79bb`; 최초 보고서 기준 `fd9a6b9` | 10/10 main과 운영을 별도로 조회; 최신 운영 기능 전체가 main에 있는 것은 아님 |
 | 현재 운영 | `malhaebom-mk2-custom-question-1010`, 트래픽 100% | 10/10 Cloud Run 서비스·revision 조회로 확인 |
 | 배포사이트·API | 사이트·백엔드 health·OpenAPI HTTP 200; JS `index-BoubqN-2.js` | 홈·초기 연습 화면 직접 확인, 이력서 작성 보조 코드 및 API 명세 확인 |
-| 과거 운영 HTTP 연결 증거 | [PR #221](https://github.com/aihuman-7th/proj2-3/pull/221), MERGED | 10/9 당시 실제 채팅 200·입력 오류 422의 ID 직접 연결 |
-| 전문가 검토 메타데이터 | [PR #219](https://github.com/aihuman-7th/proj2-3/pull/219), MERGED | 사용자 확인에 따른 김창민 검토 완료 기록; 생성 출력의 새 사람 평가와 구분 |
+| 과거 운영 HTTP 연결 증거 | PR #221, MERGED | 10/9 당시 실제 채팅 200·입력 오류 422의 ID 직접 연결 |
+| 전문가 검토 메타데이터 | PR #219, MERGED | 사용자 확인에 따른 김창민 검토 완료 기록; 생성 출력의 새 사람 평가와 구분 |
 | 과거 평가 | 아래 각 실행의 날짜·모델·Prompt·Skill·입력 조건 | 최신 운영 품질 점수로 재사용하지 않음 |
 
 현재 이미지 digest는 `sha256:a8a5ab966d8742dede8e1400426f20035dc7d71dc2b965c12394070d1f6eca19`다. 조회 시각·트래픽·공개 환경 설정·배포 JS 해시·이력서 API·PR 병합 상태는 [10/10 증거 snapshot](evidence/agent-report-20261010.json)에 고정했다. 과거 평가의 출처·SHA256·집계는 [10/9 snapshot](evidence/agent-report-20261009.json)을 유지한다.
@@ -180,7 +180,7 @@ Haiku 실행의 manifest 모델 ID는 `anthropic/claude-haiku-5.5`다. 이름은
 
 ## 10. 도메인 규칙 검토와 사람 평가
 
-질문 기준 33개의 이유·출처·검토 상태는 provenance로 관리한다. 사용자가 10/9 김창민(IT 업계 면접관 경험 있음)의 전체 검토 완료를 확인했고 [PR #219](https://github.com/aihuman-7th/proj2-3/pull/219)에 반영했다. 이름·경험·완료는 사용자 제공 확인이며 별도의 검토 원문은 첨부되지 않았다.
+질문 기준 33개의 이유·출처·검토 상태는 provenance로 관리한다. 사용자가 10/9 김창민(IT 업계 면접관 경험 있음)의 전체 검토 완료를 확인했고 PR #219에 반영했다. 이름·경험·완료는 사용자 제공 확인이며 별도의 검토 원문은 첨부되지 않았다.
 
 규칙 검토 완료는 생성된 코칭 출력의 사람 평가 완료와 다르다. provenance 메타데이터를 모델 입력에 자동 주입하거나 사례 정답을 운영 Skill에 넣지 않는다. PR #219는 병합돼 main에 후속 검토 완료 기록이 있다. 과거 유보 기록은 당시 상태이며 현재 미병합 상태로 설명하지 않는다.
 

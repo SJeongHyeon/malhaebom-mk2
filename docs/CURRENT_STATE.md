@@ -182,7 +182,7 @@ GitHub main의 사례 1~8에 로컬의 개인 행동/선택 이유 및 관찰 �
 ## 2026-10-02 평가 증거·누락 항목 교차검증 (문서 정리)
 
 - 기존 `EVAL_REPORT.md` 4·6·7장 수치와 원본 실험을 [증거·누락 점검표](experiments/2026-10-02_evaluation-evidence-gap-audit.md)로 연결했다. 동일 Skill v4/v5 **2,048-token·45초 페어 비교**, v5 **2,048-token·60초 단독 실행**, v5 **4,096-token·60초 후속 실행**은 서로 다른 측정이다. 과거 v4 팀 품질 취합과 D4 Dataset 정답표 검토도 현재 v5 사람 평가와 별도로 유지한다.
-- 4,096-token v5 자동 불일치 7건 검토 양식은 [PR #161](https://github.com/aihuman-7th/proj2-3/pull/161)로 병합됐지만, 새 v5 사람 점수·critical 판정은 미입력이다. [PR #162](https://github.com/aihuman-7th/proj2-3/pull/162)는 이미 병합된 별도의 **Prompt·Skill 실행 버전 기록 수정**이며 사람 검토 완료와 무관하다. final 비용 상한, D11 운영 baseline과 단일 변경·주입 3건 전후, D10 production trace 및 같은 요청 PlayMCP 직접 분석 증거도 여전히 미확인이다. 이번 작업은 원본 재채점·신규 provider 호출·운영 배포를 수행하지 않았다. Worklog.
+- 4,096-token v5 자동 불일치 7건 검토 양식은 PR #161로 병합됐지만, 새 v5 사람 점수·critical 판정은 미입력이다. PR #162는 이미 병합된 별도의 **Prompt·Skill 실행 버전 기록 수정**이며 사람 검토 완료와 무관하다. final 비용 상한, D11 운영 baseline과 단일 변경·주입 3건 전후, D10 production trace 및 같은 요청 PlayMCP 직접 분석 증거도 여전히 미확인이다. 이번 작업은 원본 재채점·신규 provider 호출·운영 배포를 수행하지 않았다. Worklog.
 
 ## 2026-10-02 코칭 Prompt·Skill 실행 버전 기록 정합성
 

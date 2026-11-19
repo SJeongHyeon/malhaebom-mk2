@@ -21,12 +21,12 @@
 
 ## 2026-10-08 D12 평가·Langfuse 증거 정합성
 
-이 표는 **확인한 실행 결과**와 **실제 제출용 파일 확보**를 구분한다. [D11 실험 PR #215](https://github.com/aihuman-7th/proj2-3/pull/215)와 [D10 운영 관측 PR #216](https://github.com/aihuman-7th/proj2-3/pull/216)은 **미병합** 상태로 확인했으며, 해당 내용을 이미 `main`에 반영했다고 표기하지 않는다.
+이 표는 **확인한 실행 결과**와 **실제 제출용 파일 확보**를 구분한다. D11 실험 PR #215와 D10 운영 관측 PR #216은 **미병합** 상태로 확인했으며, 해당 내용을 이미 `main`에 반영했다고 표기하지 않는다.
 
 | 대상 | 10/8까지 확인한 것 | 제출/완료 판정과 남은 일 |
 | --- | --- | --- |
-| [평가 보고서](../EVAL_REPORT.md) · D12 전후 비교 | 10/2 동일 조건 30건 v4/v5 자동 통과 22/30 vs 20/30, 10/6 운영 이미지 30건×3회 별도. 10/8 신규 인젝션 3건에서 **마지막 시도 계약 v4 3/3·v5 3/3, 기대 판정 v4 3/3·v5 2/3** ([PR #215](https://github.com/aihuman-7th/proj2-3/pull/215)). | v5 **최초 계약은 1/3**으로 후속 재시도와 구분. 신규 3건은 단일 사람 검토 기준이며 독립 정답·공식 Dataset 승격·방어 효과 검증 미완료. 운영 Skill v6과 D11 Skill v6.1을 혼동하지 않는다. |
-| Langfuse 상세 운영 관측 | 사용자가 Langfuse Cloud 화면에서 Prompt `malhaebom-coaching-v5-reinforced-verification@4`에 `production` 라벨, 같은 trace의 provider HTTP 200, `CoachingLLMOutput.valid=true`, `error_count=0` 확인 ([PR #216](https://github.com/aihuman-7th/proj2-3/pull/216)). | **실측 관측 근거는 확보. 제출 가능한 비식별 스크린샷 3장 이상은 미확보.** 받은 원본 화면에 사용자·세션 식별자·SDK public key가 보여 원본을 저장소·발표물에 복사하지 않는다. Cloud Run revision·실제 Skill 번들·DB 연계·rollback도 별도 미확인. |
+| [평가 보고서](../EVAL_REPORT.md) · D12 전후 비교 | 10/2 동일 조건 30건 v4/v5 자동 통과 22/30 vs 20/30, 10/6 운영 이미지 30건×3회 별도. 10/8 신규 인젝션 3건에서 **마지막 시도 계약 v4 3/3·v5 3/3, 기대 판정 v4 3/3·v5 2/3** (PR #215). | v5 **최초 계약은 1/3**으로 후속 재시도와 구분. 신규 3건은 단일 사람 검토 기준이며 독립 정답·공식 Dataset 승격·방어 효과 검증 미완료. 운영 Skill v6과 D11 Skill v6.1을 혼동하지 않는다. |
+| Langfuse 상세 운영 관측 | 사용자가 Langfuse Cloud 화면에서 Prompt `malhaebom-coaching-v5-reinforced-verification@4`에 `production` 라벨, 같은 trace의 provider HTTP 200, `CoachingLLMOutput.valid=true`, `error_count=0` 확인 (PR #216). | **실측 관측 근거는 확보. 제출 가능한 비식별 스크린샷 3장 이상은 미확보.** 받은 원본 화면에 사용자·세션 식별자·SDK public key가 보여 원본을 저장소·발표물에 복사하지 않는다. Cloud Run revision·실제 Skill 번들·DB 연계·rollback도 별도 미확인. |
 | 최신 v5 불일치 사람 검토 7건 | 10/2 v5의 자동 불일치 7건 및 검토 양식 준비는 기존 증거에 기록됨. | 실제 사람 semantic/critical 판정 입력과 최종 승인 **미완료**. 과거 v4 팀 품질 평가·D4 정답 검토를 대신 쓰지 않는다. |
 | 정상/실패 데모·코드 동결·최종 발표 PDF | 기능 수정이 계속 예정돼 있어 10/8에 완료하지 않음. | 영상 2개 및 최종 동결은 수정·검증 뒤 수행. 발표 PDF와 최종 제출 링크는 별도 확인·등록 필요. |
 

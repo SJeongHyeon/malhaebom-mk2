@@ -51,18 +51,18 @@ v5의 나머지 2건은 재시도에서도 provider `finish_reason=error` 및 �
 
 > 아래 병합 대기 설명은 10/8 작성 당시 이력이다. PR #215·#216은 2026-10-12 병합됐다.
 
-**서로 다른 모집단·환경의 실험을 별도 기록한다.** 최신 30건 동일 조건 v4/v5 비교는 10/2, 배포 이미지 기반 30건×3회 재현은 10/6, **별도 신규 인젝션 3건 비교는 10/8**이다. 마지막 실험은 [PR #215](https://github.com/aihuman-7th/proj2-3/pull/215)에 기록돼 있으며 리뷰·병합 대기 중이다. 새 평가 또는 사람 점수를 이번 D12 정리에서 생성하지 않았다.
+**서로 다른 모집단·환경의 실험을 별도 기록한다.** 최신 30건 동일 조건 v4/v5 비교는 10/2, 배포 이미지 기반 30건×3회 재현은 10/6, **별도 신규 인젝션 3건 비교는 10/8**이다. 마지막 실험은 PR #215에 기록돼 있으며 리뷰·병합 대기 중이다. 새 평가 또는 사람 점수를 이번 D12 정리에서 생성하지 않았다.
 
 | 증거 | 실행 조건 / 지표 | 확인된 결과 | 해석 제한 |
 | --- | --- | --- | --- |
 | 10/2 30건 Prompt 전후 | 동일 Gemini 3.5 Flash-Lite, 현재 Skill v6.1, max 2,048, Prompt v4 vs v5 | 종합 자동 통과 **22/30 → 20/30**, p95 **4.621 → 4.622초**, 비용 **$0.19638110 → $0.17027067** | 회귀가 있어 v5 품질 개선/승격을 주장하지 않음 |
 | 10/6 운영 이미지 반복 baseline | 배포 이미지의 30건×3회, 합성 입력·provider 직접 호출 | 계약 **90/90**, 판정 전체 일치 **65/90**, 종합 자동 통과 **57/90**, 알려진 비용 **$0.424128** | 10/2 Prompt 교체 A/B도, 운영 인증 사용자 E2E도 아님 |
 | 10/8 D11 신규 인젝션 3건 | 합성 입력, Prompt `coaching-output-v4` vs `coaching-v5-skill-owned`, Skill v6.1, 실패 시 제한 재시도 | **마지막 시도 기준** 계약 **3/3 vs 3/3**, intent/C/A/V 기대 판정 전체 일치 **3/3 vs 2/3** | **최초 v5 계약은 1/3**. 재시도 횟수·timeout 차이, 단일 검토자, 미확인 과금 때문에 공식 방어 개선율이 아님 |
-| 10/8 관리형 Prompt 실사용 trace | 운영 Langfuse의 `malhaebom-coaching-v5-reinforced-verification@4` | 동일 trace의 모델 호출 성공 및 `CoachingLLMOutput` **`valid=true`, 오류 0** ([PR #216](https://github.com/aihuman-7th/proj2-3/pull/216)) | **D11 v5-skill-owned와 다른 Prompt**. Skill v6은 표시값만 확인; Cloud Run revision/실제 번들 미확정 |
+| 10/8 관리형 Prompt 실사용 trace | 운영 Langfuse의 `malhaebom-coaching-v5-reinforced-verification@4` | 동일 trace의 모델 호출 성공 및 `CoachingLLMOutput` **`valid=true`, 오류 0** (PR #216) | **D11 v5-skill-owned와 다른 Prompt**. Skill v6은 표시값만 확인; Cloud Run revision/실제 번들 미확정 |
 
 D11의 추가 재시도에서 v5 `d11-injection-02`는 `own_action=met`으로 기대 `partial`과 불일치했다. 독립 사람 입력·정답 검토, 신규 공식 Dataset 승격, 최신 운영 출력 7건 사람 의미 품질 평가, 최종 반복 측정·비용 상한 및 Prompt release/rollback은 **완료하지 않았다**. D11은 실험 기록을 남기는 것으로 마무리했고 추가 Prompt 개선은 진행하지 않는다.
 
-현재 `main`과 [PR #215](https://github.com/aihuman-7th/proj2-3/pull/215), [PR #216](https://github.com/aihuman-7th/proj2-3/pull/216)는 병합 전 별도 상태다. 위 표는 각 PR의 검증된 결과를 **제출용으로 참조**하는 것이지 그 내용을 이미 `main`에 병합했다는 뜻이 아니다.
+현재 `main`과 PR #215, PR #216는 병합 전 별도 상태다. 위 표는 각 PR의 검증된 결과를 **제출용으로 참조**하는 것이지 그 내용을 이미 `main`에 병합했다는 뜻이 아니다.
 
 > 30건 동일 조건 Prompt 비교의 최신 측정: 2026-10-02, 영문 `coaching-v5-skill-owned` · Skill `interview-coach-v6.1-domain-rules`. 별도 10/8 신규 인젝션 3건 잠정 측정은 위 D12 표 참조.
 > 4·6·7장은 현재 Prompt 재측정 결과이며, 뒤의 과거 모델 선정 기록은 당시 조건의 증거다.
@@ -224,7 +224,7 @@ call-level overall accuracy도 같은 저장 응답을 새 정답으로 채점�
 
 동일 v5/Skill/30건을 최대 출력 4,096 tokens·timeout 60초로 별도 실행했다. 계약은 30/30(100%), `finish_reason=stop`은 30/30, 비용은 $0.171308, p50/p95는 4.393초/6.167초였다. 2,048-token 실행에서 발생한 `coach-failure-26`의 JSON 절단은 재현되지 않았다. 자동 의미 판정/근거 불일치 7개와 사람 검토 미수행은 남아 있어, 이를 품질 승격이나 출시 게이트 통과로 해석하지 않는다.
 
-4,096-token 후속 실행에서 사람 검토가 필요한 7건은 `coach-normal-09`, `coach-boundary-13/16/17/19/20`, `coach-failure-27`이다. 병합된 [PR #161](https://github.com/aihuman-7th/proj2-3/pull/161)은 이 7건의 **빈 사람 검토 양식만 준비**했다. 사람 점수·critical 판정을 생성하지 않았으며 과거 v4 결과나 다른 Gemini 실행의 불일치 7건과 혼용하지 않는다.
+4,096-token 후속 실행에서 사람 검토가 필요한 7건은 `coach-normal-09`, `coach-boundary-13/16/17/19/20`, `coach-failure-27`이다. 병합된 PR #161은 이 7건의 **빈 사람 검토 양식만 준비**했다. 사람 점수·critical 판정을 생성하지 않았으며 과거 v4 결과나 다른 Gemini 실행의 불일치 7건과 혼용하지 않는다.
 
 ## 5. 비용과 품질을 함께 놓고 내린 판단
 
