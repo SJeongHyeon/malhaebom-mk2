@@ -12,13 +12,11 @@ ENTRY_DOCS = (
     "README.md",
     "docs/README.md",
     "docs/PROJECT_OVERVIEW.md",
-    "docs/REQUIREMENTS.md",
     "docs/CURRENT_STATE.md",
     "docs/PYTHON_ENVIRONMENT.md",
-    "docs/project2-checkpoint-work-cards.md",
 )
 # Only these maintained entry points are expected to use *current* Skill paths.
-SKILL_PATH_DOCS = frozenset({"README.md", "docs/project2-checkpoint-work-cards.md"})
+SKILL_PATH_DOCS = frozenset({"README.md"})
 MARKDOWN_LINK = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 INLINE_SKILL_PATH = re.compile(r"`(skills/[A-Za-z0-9_./-]+\.(?:md|json))`")
 # Individual workstation paths do not belong in maintained project guidance.

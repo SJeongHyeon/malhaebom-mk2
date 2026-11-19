@@ -75,7 +75,8 @@ docker compose up           # 처음에는 이미지를 빌드합니다
 - 포트가 사용 중이면 `.env`의 `WEB_PORT`, `API_PORT`를 바꿉니다.
 - `STT_WARMUP_ENABLED=false`는 시작할 때 음성 모델 다운로드를 하지 않습니다. 첫 음성 분석에서 모델 준비 시간이 따로 듭니다.
 - 새 clone 기동 시간과 검증 범위는 [재현 점검](docs/evidence/clean-compose-reproduction-20261010.md)에 있습니다.
-- 단위 시험: `pip install -r backend/requirements-ci.txt` 후 `python -m pytest backend/tests -q`, 프론트엔드는 `npm ci --prefix frontend && npm --prefix frontend test` (CI와 같은 명령)
+- 단위 시험: `pip install -r backend/requirements-ci.txt` 후 `python -m pytest backend/tests -q`, 프론트엔드는 `npm ci --prefix frontend && npm --prefix frontend test` (CI와 같은 명령). Windows에서는 시간대 데이터가 없어 `pip install tzdata`를 추가로 해야 합니다.
+- 이 사본에서 키 없이 다시 실행한 결과(2026-11-19): 백엔드 `846 passed, 2 skipped`, 프론트엔드 `46개 파일 279개 테스트 통과`와 `npm run build` 성공. 프론트엔드는 Node 26으로 돌렸고 CI는 Node 22.14를 씁니다.
 
 ## 데이터와 출처
 
