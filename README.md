@@ -83,6 +83,7 @@ docker compose up           # 처음에는 이미지를 빌드합니다
 - 새 clone 기동 시간과 검증 범위는 [재현 점검](docs/evidence/clean-compose-reproduction-20261010.md)에 있습니다.
 - 단위 시험: `pip install -r backend/requirements-ci.txt` 후 `python -m pytest backend/tests -q`, 프론트엔드는 `npm ci --prefix frontend && npm --prefix frontend test` (CI와 같은 명령). Windows에서는 시간대 데이터가 없어 `pip install tzdata`를 추가로 해야 합니다.
 - 이 사본에서 키 없이 다시 실행한 결과(2026-11-19): 백엔드 `846 passed, 2 skipped`, 프론트엔드 `46개 파일 279개 테스트 통과`와 `npm run build` 성공. 프론트엔드는 Node 26으로 돌렸고 CI는 Node 22.14를 씁니다.
+- GitHub Actions(Product CI): 2026-11-19에 이 저장소에서 수동 실행(`workflow_dispatch`)한 결과 백엔드 시험과 프론트엔드 시험·빌드 작업이 모두 성공했습니다(커밋 `e00b408`, [실행 기록](https://github.com/SJeongHyeon/malhaebom-mk2/actions/runs/44474908444)). 일부 의존성은 범위(`>=`)로만 지정돼 있어 이 결과는 그날의 값이며 이후에도 같다는 보장은 아닙니다.
 
 ## 데이터와 출처
 
